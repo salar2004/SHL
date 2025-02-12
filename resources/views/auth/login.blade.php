@@ -1,6 +1,5 @@
 {{-- Login Page --}}
-@extends('layouts.app')
-@section('content')
+<x-guest-layout>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -26,4 +25,5 @@
         </div>
     </div>
 </div>
-@endsection
+</x-guest-layout>
+

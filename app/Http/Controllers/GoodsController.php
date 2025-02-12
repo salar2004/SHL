@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Good;  // نموذج Good
+use App\Models\Goods;  // نموذج Good
 use Illuminate\Http\Request;
 
 class GoodsController extends Controller
@@ -10,14 +10,14 @@ class GoodsController extends Controller
     // عرض جميع المنتجات
     public function index()
     {
-        $goods = Good::all();
+        $goods = Goods::all();
         return view('goods.index', compact('goods'));  // افترض أن هناك عرض باسم goods.index
     }
 
     // عرض تفاصيل منتج معين
     public function show($id)
     {
-        $good = Good::findOrFail($id);
+        $good = Goods::findOrFail($id);
         return view('goods.show', compact('good'));  // افترض أن هناك عرض باسم goods.show
     }
 
@@ -44,7 +44,7 @@ class GoodsController extends Controller
     // تعديل بيانات منتج
     public function edit($id)
     {
-        $good = Good::findOrFail($id);
+        $good = Goods::findOrFail($id);
         return view('goods.edit', compact('good'));  // افترض أن هناك عرض باسم goods.edit
     }
 
@@ -58,7 +58,7 @@ class GoodsController extends Controller
             'stock' => 'required|integer',
         ]);
 
-        $good = Good::findOrFail($id);
+        $good = Goods::findOrFail($id);
         $good->update($request->all());
         return redirect()->route('goods.index');
     }
@@ -66,7 +66,7 @@ class GoodsController extends Controller
     // حذف منتج
     public function destroy($id)
     {
-        $good = Good::findOrFail($id);
+        $good = Goods::findOrFail($id);
         $good->delete();
         return redirect()->route('goods.index');
     }

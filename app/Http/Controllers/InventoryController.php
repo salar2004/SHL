@@ -10,21 +10,21 @@ class InventoryController extends Controller
     // عرض جميع المخزونات
     public function index()
     {
-        $inventories = Inventory::all();
-        return view('inventories.index', compact('inventories'));  // افترض أن هناك عرض باسم inventories.index
+        $Inventory = Inventory::all();
+        return view('Inventory.index', compact('Inventory'));  // افترض أن هناك عرض باسم Inventory.index
     }
 
     // عرض تفاصيل مخزون معين
     public function show($id)
     {
         $inventory = Inventory::findOrFail($id);
-        return view('inventories.show', compact('inventory'));  // افترض أن هناك عرض باسم inventories.show
+        return view('Inventory.show', compact('inventory'));  // افترض أن هناك عرض باسم Inventory.show
     }
 
     // إنشاء مخزون جديد
     public function create()
     {
-        return view('inventories.create');  // افترض أن هناك عرض باسم inventories.create
+        return view('Inventory.create');  // افترض أن هناك عرض باسم Inventory.create
     }
 
     // تخزين المخزون في قاعدة البيانات
@@ -37,14 +37,14 @@ class InventoryController extends Controller
         ]);
 
         Inventory::create($request->all());
-        return redirect()->route('inventories.index');
+        return redirect()->route('Inventory.index');
     }
 
     // تعديل بيانات المخزون
     public function edit($id)
     {
         $inventory = Inventory::findOrFail($id);
-        return view('inventories.edit', compact('inventory'));  // افترض أن هناك عرض باسم inventories.edit
+        return view('Inventory.edit', compact('inventory'));  // افترض أن هناك عرض باسم Inventory.edit
     }
 
     // تحديث بيانات المخزون
@@ -58,7 +58,7 @@ class InventoryController extends Controller
 
         $inventory = Inventory::findOrFail($id);
         $inventory->update($request->all());
-        return redirect()->route('inventories.index');
+        return redirect()->route('Inventory.index');
     }
 
     // حذف المخزون
@@ -66,6 +66,6 @@ class InventoryController extends Controller
     {
         $inventory = Inventory::findOrFail($id);
         $inventory->delete();
-        return redirect()->route('inventories.index');
+        return redirect()->route('Inventory.index');
     }
 }
