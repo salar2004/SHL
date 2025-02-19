@@ -1,13 +1,16 @@
 {{-- Admin Dashboard --}}
 @extends('layouts.app')
+
 @section('content')
-<div class="container mt-5">
-    <h2>Admin Dashboard</h2>
-    <ul>
-        <li><a href="{{ route('inventory.index') }}">Manage Inventory</a></li>
-        <li><a href="{{ route('sales.index') }}">View Sales</a></li>
-        <li><a href="{{ route('expenses.index') }}">Manage Expenses</a></li>
-        <li><a href="{{ route('users.index') }}">Manage Users</a></li>
-    </ul>
+<div class="dashboard-container">
+    <h2 class="dashboard-title">Admin Dashboard</h2>
+    <div class="dashboard-links">
+        <ul class="dashboard-list">
+            <li><a href="{{ route('inventory.index') }}" class="dashboard-link">Manage Inventory</a></li>
+            <li><a href="{{ route('sales.index') }}" class="dashboard-link">View Sales</a></li>
+            <li><a href="{{ route('expenses.index') }}" class="dashboard-link">Manage Expenses</a></li>
+            <li><a href="{{ route('users.index') }}" class="dashboard-link">Manage Users</a></li>
+        </ul>
+    </div>
 </div>
 @endsection
